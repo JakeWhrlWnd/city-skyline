@@ -3,7 +3,7 @@
     --building-color2: #66CC99;
     --building-color3: #CC6699;
     --building-color4: #538CC6;
-    --window-color1: black;
+    --window-color1: #BB99FF;
     --window-color2: #8CD9B3;
     --window-color3: #D98CB3;
     --window-color4: #8CB3D9;
@@ -40,6 +40,10 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.sky {
+    background: radial-gradient(circle closest-corner at 15% 15%, #FFCF33, #FFCF33 20%, #FFFF66 21%, #BBEEFF 100%);
 }
 
 /* BACKGROUND BUILDINGS - "bb" stands for "background building" */
@@ -130,7 +134,9 @@ body {
 }
 
 .fb1a {
-
+    border-bottom: 7vh solid var(--building-color4);
+    border-left: 2vw solid transparent;
+    border-right: 2vw solid transparent;
 }
 
 .fb1b {
@@ -142,18 +148,55 @@ body {
 .fb1c {
     width: 100%;
     height: 80%;
+    background: repeating-linear-gradient(90deg, var(--building-color4) 0%, var(--building-color4) 10%, transparent 10%, transparent 15%),
+    repeating-linear-gradient(var(--building-color4), var(--building-color4) 10%, var(--window-color4) 10%, var(--window-color4) 90%);
 }
 
 .fb2 {
     width: 10%;
     height: 40%;
+}
+
+.fb2a {
+    width: 100%;
+    border-bottom: 10vh solid var(--building-color3);
+    border-left: 1vw solid transparent;
+    border-right: 1vw solid transparent;
+}
+
+.fb2b {
+    width: 100%;
+    height: 75%;
     background-color: var(--building-color3);
+}
+
+.fb2-window {
+    width: 22%;
+    height: 100%;
+    background-color: var(--window-color3);
 }
 
 .fb3 {
     width: 10%;
     height: 35%;
+}
+
+.fb3a {
+    width: 80%;
+    height: 15%;
     background-color: var(--building-color1);
+}
+
+.fb3b {
+    width: 100%;
+    height: 35%;
+    background-color: var(--building-color1);
+}
+
+.fb3-window {
+    width: 25%;
+    height: 80%;
+    background-color: var(--window-color1);
 }
 
 .fb4 {
@@ -161,7 +204,27 @@ body {
     height: 45%;
     position: relative;
     left: 10%;
+}
+
+.fb4a {
+    border-top: 5vh solid transparent;
+    border-left: 8vw solid var(--building-color1);
+}
+
+.fb4b {
+    width: 100%;
+    height: 89%;
+    display: flex;
+    flex-wrap: wrap;
     background-color: var(--building-color1);
+}
+
+.fb4-window {
+    width: 30%;
+    height: 10%;
+    margin: 10%;
+    border-radius: 50%;
+    background-color: var(--window-color1);
 }
 
 .fb5 {
@@ -169,11 +232,41 @@ body {
     height: 33%;
     position: relative;
     right: 10%;
-    background-color: var(--building-color2);
+    background: repeating-linear-gradient(var(--building-color2), var(--building-color2) 5%, transparent 5%, transparent 10%),
+    repeating-linear-gradient(90deg, var(--building-color2), var(--building-color2) 12%, var(--window-color2) 12%, var(--window-color2) 44%);
 }
 
 .fb6 {
     width: 9%;
     height: 38%;
-    background-color: var(--building-color3);
+    background: repeating-linear-gradient(90deg, var(--building-color3), var(--building-color3) 10%, transparent 10%, transparent 30%),
+    repeating-linear-gradient(
+        var(--building-color3),
+        var(--building-color3) 10%,
+        var(--window-color3) 10%,
+        var(--window-color3) 30%
+    );
+}
+
+@media (max-width: 1000px) {
+    :root {
+        --building-color1: #000;
+        --building-color2: #000;
+        --building-color3: #000;
+        --building-color4: #000;
+        --window-color1: #777;
+        --window-color2: #777;
+        --window-color3: #777;
+        --window-color4: #777;
+    }   
+
+    .sky {
+        radial-gradient(
+            closest-corner circle at 15% 15%,
+            #CCC,
+            #CCC 20%,
+            #445 21%,
+            #223 100%
+        );
+    }
 }
